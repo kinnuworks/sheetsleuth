@@ -1,14 +1,38 @@
 {
   "version": 1,
   "project": {
-    "name": "",
-    "goal": "",
-    "stack": []
+    "name": "sheetsleuth",
+    "goal": "A rebuildable TypeScript monorepo for a spreadsheet safety check used by AI agents, starting with a Pages placeholder.",
+    "stack": [
+      "Node.js 22.23.3",
+      "npm workspaces",
+      "TypeScript strict",
+      "Vitest",
+      "ESLint",
+      "Prettier",
+      "static web app"
+    ]
   },
   "checks": {
-    "test": null,
-    "lint": null,
-    "typecheck": null,
-    "build": null
+    "test": {
+      "command": "npm test",
+      "cwd": ".",
+      "timeoutMs": 120000
+    },
+    "lint": {
+      "command": "npm run lint",
+      "cwd": ".",
+      "timeoutMs": 120000
+    },
+    "typecheck": {
+      "command": "npm run typecheck",
+      "cwd": ".",
+      "timeoutMs": 120000
+    },
+    "build": {
+      "command": "npm run build",
+      "cwd": ".",
+      "timeoutMs": 120000
+    }
   }
 }
