@@ -15,3 +15,5 @@ export type {
   Verdict,
   Workbook,
 } from './model/index.js';
+export * from './eval/index.js';
+export * from './graph/index.js';

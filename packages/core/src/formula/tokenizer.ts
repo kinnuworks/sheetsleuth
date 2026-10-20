@@ -281,6 +281,8 @@ export const tokenize = (input: string): readonly FormulaToken[] => {
       '}': 'array-end',
       ';': 'array-row-separator',
       '=': 'operator',
+      '<': 'operator',
+      '>': 'operator',
       '+': 'operator',
       '-': 'operator',
       '*': 'operator',
