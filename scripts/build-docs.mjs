@@ -1,11 +1,4 @@
-import {
-  existsSync,
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  statSync,
-  writeFileSync,
-} from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -37,9 +30,9 @@ function sourceFiles(directory) {
   if (!existsSync(directory)) return [];
 
   const files = [];
-  const entries = readdirSync(directory, { withFileTypes: true }).sort((left, right) => (
-    compareNames(left.name, right.name)
-  ));
+  const entries = readdirSync(directory, { withFileTypes: true }).sort((left, right) =>
+    compareNames(left.name, right.name),
+  );
 
   for (const entry of entries) {
     const entryPath = path.join(directory, entry.name);
@@ -92,7 +85,8 @@ function exportedFunctionNames(source) {
 
 function renderDetectors() {
   const sections = detectorFiles().map(normalizedText).filter(Boolean);
-  const body = sections.length > 0 ? sections.join('\n\n') : '_No detector documentation found yet._';
+  const body =
+    sections.length > 0 ? sections.join('\n\n') : '_No detector documentation found yet._';
   return `# Detectors\n\n${body}\n`;
 }
 
@@ -105,9 +99,10 @@ function renderFunctions() {
   }
 
   const sortedNames = [...names].sort(compareNames);
-  const body = sortedNames.length > 0
-    ? sortedNames.map((name) => `- \`${name}\``).join('\n')
-    : '_No exported functions found yet._';
+  const body =
+    sortedNames.length > 0
+      ? sortedNames.map((name) => `- \`${name}\``).join('\n')
+      : '_No exported functions found yet._';
   return `# Supported Functions\n\n${body}\n`;
 }
 
@@ -116,4 +111,6 @@ mkdirSync(path.dirname(functionsOutput), { recursive: true });
 writeFileSync(detectorsOutput, renderDetectors());
 writeFileSync(functionsOutput, renderFunctions());
 
-console.log(`Generated ${path.relative(repoRoot, detectorsOutput)} and ${path.relative(repoRoot, functionsOutput)}.`);
+console.log(
+  `Generated ${path.relative(repoRoot, detectorsOutput)} and ${path.relative(repoRoot, functionsOutput)}.`,
+);

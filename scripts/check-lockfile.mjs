@@ -62,7 +62,9 @@ function expectedVariants(darwinName, platform) {
 
 function main() {
   if (!existsSync(lockfilePath)) {
-    console.error('FAIL: package-lock.json was not found. Generate the workspace lockfile before running this check.');
+    console.error(
+      'FAIL: package-lock.json was not found. Generate the workspace lockfile before running this check.',
+    );
     process.exitCode = 2;
     return;
   }

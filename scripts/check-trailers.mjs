@@ -31,16 +31,16 @@ function findProductSpecCommit() {
 
   if (matches.length > 1) {
     const commits = matches.map(({ sha }) => sha).join(', ');
-    throw new Error(`found multiple "Add product spec" commits (${commits}); the anchor must be unique`);
+    throw new Error(
+      `found multiple "Add product spec" commits (${commits}); the anchor must be unique`,
+    );
   }
 
   return matches[0].sha;
 }
 
 function commitDetails(sha) {
-  const metadata = runGit(
-    ['show', '-s', '--format=%an%x00%ae%x00%cn%x00%ce%x00%s', sha],
-  ).trimEnd();
+  const metadata = runGit(['show', '-s', '--format=%an%x00%ae%x00%cn%x00%ce%x00%s', sha]).trimEnd();
   const [authorName, authorEmail, committerName, committerEmail, subject] = metadata.split('\0');
   const message = runGit(['show', '-s', '--format=%B', sha]);
   return {
