@@ -12,6 +12,7 @@ dist
 **/.starter/**
 
 *.log
+*.tsbuildinfo
 logs
 **/logs
 
