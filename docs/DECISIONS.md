@@ -1,5 +1,9 @@
 # Decisions
 
+## Session 1
+
+- Session 1 fixture generation uses LibreOffice 7.4.7.2 40(Build:2); the generator records this version in every fixture spec.
+
 ## Session 0
 
 - `docker info` was attempted on October 20, 2026, but Docker is not installed in the sandbox. The lockfile fallback is the direct Linux command `npm install --package-lock-only`; the native CI judge jobs remain the rebuild proof.

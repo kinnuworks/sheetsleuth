@@ -1,0 +1,68 @@
+{
+  "name": "noise-budget",
+  "description": "Clean quarterly operating budget with ordinary totals.",
+  "excludeFromFidelity": [],
+  "sheets": [
+    {
+      "name": "Budget",
+      "cells": {
+        "A1": "Operating budget",
+        "A3": "Category",
+        "B3": "January",
+        "C3": "February",
+        "D3": "March",
+        "E3": "Quarter total",
+        "A4": "Payroll",
+        "B4": 42000,
+        "C4": 42000,
+        "D4": 43000,
+        "E4": {
+          "formula": "=SUM(B4:D4)",
+          "cached": 127000
+        },
+        "A5": "Rent",
+        "B5": 9000,
+        "C5": 9000,
+        "D5": 9000,
+        "E5": {
+          "formula": "=SUM(B5:D5)",
+          "cached": 27000
+        },
+        "A6": "Software",
+        "B6": 2400,
+        "C6": 2400,
+        "D6": 2600,
+        "E6": {
+          "formula": "=SUM(B6:D6)",
+          "cached": 7400
+        },
+        "A7": "Travel",
+        "B7": 1800,
+        "C7": 1200,
+        "D7": 2000,
+        "E7": {
+          "formula": "=SUM(B7:D7)",
+          "cached": 5000
+        },
+        "A8": "Total",
+        "B8": {
+          "formula": "=SUM(B4:B7)",
+          "cached": 55200
+        },
+        "C8": {
+          "formula": "=SUM(C4:C7)",
+          "cached": 54600
+        },
+        "D8": {
+          "formula": "=SUM(D4:D7)",
+          "cached": 56600
+        },
+        "E8": {
+          "formula": "=SUM(E4:E7)",
+          "cached": 166400
+        }
+      }
+    }
+  ],
+  "sofficeVersion": "LibreOffice 7.4.7.2 40(Build:2)"
+}

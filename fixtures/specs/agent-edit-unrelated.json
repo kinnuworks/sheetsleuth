@@ -1,0 +1,82 @@
+{
+  "name": "agent-edit-unrelated",
+  "description": "After state where a formula outside the intended input range changed.",
+  "excludeFromFidelity": [],
+  "demo": {
+    "role": "after",
+    "expectedVerdict": "review",
+    "intendedRange": "Model!B5:B5"
+  },
+  "sheets": [
+    {
+      "name": "Model",
+      "cells": {
+        "A1": "Regional sales model",
+        "A4": "Region",
+        "B4": "Q1",
+        "C4": "Q2",
+        "D4": "Q3",
+        "E4": "Q4",
+        "F4": "Annual",
+        "A5": "North",
+        "B5": 100,
+        "C5": 110,
+        "D5": 120,
+        "E5": 130,
+        "F5": {
+          "formula": "=SUM(B5:D5)",
+          "cached": 330
+        },
+        "A6": "South",
+        "B6": 90,
+        "C6": 95,
+        "D6": 100,
+        "E6": 105,
+        "F6": {
+          "formula": "=SUM(B6:E6)",
+          "cached": 390
+        },
+        "A7": "East",
+        "B7": 80,
+        "C7": 85,
+        "D7": 90,
+        "E7": 95,
+        "F7": {
+          "formula": "=SUM(B7:E7)",
+          "cached": 350
+        },
+        "A8": "West",
+        "B8": 70,
+        "C8": 75,
+        "D8": 80,
+        "E8": 85,
+        "F8": {
+          "formula": "=SUM(B8:E8)",
+          "cached": 310
+        },
+        "A10": "Total",
+        "B10": {
+          "formula": "=SUM(B5:B8)",
+          "cached": 340
+        },
+        "C10": {
+          "formula": "=SUM(C5:C8)",
+          "cached": 365
+        },
+        "D10": {
+          "formula": "=SUM(D5:D8)",
+          "cached": 390
+        },
+        "E10": {
+          "formula": "=SUM(E5:E8)",
+          "cached": 415
+        },
+        "F10": {
+          "formula": "=SUM(B10:E10)",
+          "cached": 1510
+        }
+      }
+    }
+  ],
+  "sofficeVersion": "LibreOffice 7.4.7.2 40(Build:2)"
+}

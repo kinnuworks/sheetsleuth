@@ -1,0 +1,48 @@
+{
+  "name": "loan",
+  "description": "Approximate VLOOKUP over unsorted rate bands; Excel and LibreOffice select the same wrong row.",
+  "excludeFromFidelity": [],
+  "lookupCase": {
+    "lookupCell": "B3",
+    "tableRange": "A6:C9",
+    "expectedWrongRow": 6,
+    "expectedWrongLabel": "low"
+  },
+  "sheets": [
+    {
+      "name": "Loan Model",
+      "cells": {
+        "A1": "Loan rate-band lookup",
+        "A3": "Borrower rate",
+        "B3": 0.06,
+        "A5": "Rate threshold",
+        "B5": "Interest factor",
+        "C5": "Band",
+        "A6": 0.02,
+        "B6": 1.1,
+        "C6": "low",
+        "A7": 0.08,
+        "B7": 1.5,
+        "C7": "high",
+        "A8": 0.05,
+        "B8": 1.25,
+        "C8": "middle",
+        "A9": 0.11,
+        "B9": 1.8,
+        "C9": "top",
+        "A11": "Approximate band",
+        "B11": {
+          "formula": "=VLOOKUP(B3,A6:C9,3,TRUE)",
+          "cached": "low",
+          "cachedType": "str"
+        },
+        "A12": "Applied factor",
+        "B12": {
+          "formula": "=VLOOKUP(B3,A6:C9,2,TRUE)",
+          "cached": 1.25
+        }
+      }
+    }
+  ],
+  "sofficeVersion": "LibreOffice 7.4.7.2 40(Build:2)"
+}

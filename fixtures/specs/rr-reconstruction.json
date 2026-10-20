@@ -1,0 +1,66 @@
+{
+  "name": "rr-reconstruction",
+  "description": "Labelled reconstruction of an average that omits the last five observations.",
+  "excludeFromFidelity": [],
+  "sheets": [
+    {
+      "name": "RR Reconstruction",
+      "cells": {
+        "A1": "Reinhart-Rogoff reconstruction",
+        "A3": "Country",
+        "B3": "Growth rate",
+        "A5": "Country 01",
+        "B5": 1,
+        "A6": "Country 02",
+        "B6": 2,
+        "A7": "Country 03",
+        "B7": 3,
+        "A8": "Country 04",
+        "B8": 4,
+        "A9": "Country 05",
+        "B9": 5,
+        "A10": "Country 06",
+        "B10": 6,
+        "A11": "Country 07",
+        "B11": 7,
+        "A12": "Country 08",
+        "B12": 8,
+        "A13": "Country 09",
+        "B13": 9,
+        "A14": "Country 10",
+        "B14": 10,
+        "A15": "Country 11",
+        "B15": 11,
+        "A16": "Country 12",
+        "B16": 12,
+        "A17": "Country 13",
+        "B17": 13,
+        "A18": "Country 14",
+        "B18": 14,
+        "A19": "Country 15",
+        "B19": 15,
+        "A20": "Country 16",
+        "B20": 16,
+        "A21": "Country 17",
+        "B21": 17,
+        "A22": "Country 18",
+        "B22": 18,
+        "A23": "Country 19",
+        "B23": 19,
+        "A24": "Country 20",
+        "B24": 20,
+        "A26": "Published average",
+        "B26": {
+          "formula": "=AVERAGE(B5:B19)",
+          "cached": 8
+        },
+        "A27": "Corrected average",
+        "B27": {
+          "formula": "=AVERAGE(B5:B24)",
+          "cached": 10.5
+        }
+      }
+    }
+  ],
+  "sofficeVersion": "LibreOffice 7.4.7.2 40(Build:2)"
+}

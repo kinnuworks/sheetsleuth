@@ -1,0 +1,40 @@
+{
+  "name": "gene-list",
+  "description": "Gene symbols beside spreadsheet date conversions seen in imported lists.",
+  "excludeFromFidelity": [],
+  "sheets": [
+    {
+      "name": "Gene List",
+      "cells": {
+        "A1": "Gene list import",
+        "A3": "Original symbol",
+        "B3": "Imported value",
+        "A4": "SEPT1",
+        "B4": {
+          "value": 44076,
+          "style": 1
+        },
+        "A5": "MARCH1",
+        "B5": {
+          "value": 43891,
+          "style": 1
+        },
+        "A6": "DEC1",
+        "B6": {
+          "value": 44166,
+          "style": 1
+        },
+        "A7": "BRCA1",
+        "B7": "BRCA1",
+        "A8": "TP53",
+        "B8": "TP53",
+        "A10": "Imported entries",
+        "B10": {
+          "formula": "=COUNTA(B4:B8)",
+          "cached": 5
+        }
+      }
+    }
+  ],
+  "sofficeVersion": "LibreOffice 7.4.7.2 40(Build:2)"
+}
