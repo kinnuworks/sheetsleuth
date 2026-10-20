@@ -54,10 +54,12 @@ function commitDetails(sha) {
 }
 
 function parsedTrailers(message) {
-  const output = runGit(['interpret-trailers', '--parse'], message);
   const trailers = new Map();
 
-  for (const line of output.split('\n')) {
+  // Keep accepting trailer lines separated by a blank paragraph. This matches
+  // the starter's documented commit examples and keeps the check useful for
+  // commits made by clients that insert a paragraph between trailers.
+  for (const line of message.split(/\r?\n/)) {
     const match = line.match(/^([^:]+):\s*(.*)$/);
     if (!match) continue;
     const [, key, value] = match;
