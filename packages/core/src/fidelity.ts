@@ -20,8 +20,8 @@ const numericMatch = (left: number, right: number): boolean =>
 
 export const valuesMatch = (left: Value | undefined, right: Value | undefined): boolean => {
   if (typeof left === 'number' && typeof right === 'number') return numericMatch(left, right);
-  if (isError(left as Value) && isError(right as Value)) return left.code === right.code;
-  if (isUnverified(left as Value) || isUnverified(right as Value)) return false;
+  if (left !== undefined && right !== undefined && isError(left) && isError(right)) return left.code === right.code;
+  if ((left !== undefined && isUnverified(left)) || (right !== undefined && isUnverified(right))) return false;
   return Object.is(left, right);
 };
 
