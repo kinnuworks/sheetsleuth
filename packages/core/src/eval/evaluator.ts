@@ -294,11 +294,26 @@ const evaluateFunction = (
         ? table.map((row, rowIndex) => ({ key: row[0] ?? null, index: rowIndex }))
         : (table[0] ?? []).map((item, columnIndex) => ({ key: item, index: columnIndex }));
       let found: { key: Value; index: number } | undefined;
-      for (let index = candidates.length - 1; index >= 0; index -= 1) {
-        const candidate = candidates[index]!;
-        if (approximate ? compare(candidate.key, lookup) <= 0 : compare(candidate.key, lookup) === 0) {
-          found = candidate;
-          break;
+      if (approximate) {
+        let low = 0;
+        let high = candidates.length - 1;
+        let best = -1;
+        while (low <= high) {
+          const middle = Math.floor((low + high) / 2);
+          if (compare(candidates[middle]!.key, lookup) <= 0) {
+            best = middle;
+            low = middle + 1;
+          } else {
+            high = middle - 1;
+          }
+        }
+        found = best >= 0 ? candidates[best] : undefined;
+      } else {
+        for (const candidate of candidates) {
+          if (compare(candidate.key, lookup) === 0) {
+            found = candidate;
+            break;
+          }
         }
       }
       if (!found) return errorValue('#N/A');
@@ -462,6 +477,7 @@ export const evaluateExpression = (expression: FormulaExpression, context: Evalu
     }
     case 'call': {
       const name = expression.name.replace(/^_(?:xlfn|xlws)\./i, '').toUpperCase();
+      if ((name === 'TRUE' || name === 'FALSE') && expression.args.length === 0) return name === 'TRUE';
       if (!isSupportedFunction(name)) return unverified(`Unsupported function ${name}`);
       return evaluateFunction(name, expression.args, context);
     }

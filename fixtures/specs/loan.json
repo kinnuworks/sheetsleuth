@@ -39,7 +39,7 @@
         "A12": "Applied factor",
         "B12": {
           "formula": "=VLOOKUP(B3,A6:C9,2,TRUE)",
-          "cached": 1.25
+          "cached": 1.1
         }
       }
     }

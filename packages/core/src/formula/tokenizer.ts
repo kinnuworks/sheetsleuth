@@ -262,7 +262,8 @@ export const tokenize = (input: string): readonly FormulaToken[] => {
       const end = scanIdentifier(input, index);
       const value = input.slice(index, end);
       const upper = value.toUpperCase();
-      pushToken(tokens, upper === 'TRUE' || upper === 'FALSE' ? 'boolean' : 'name', input, index, end);
+      const booleanLiteral = (upper === 'TRUE' || upper === 'FALSE') && input[end] !== '(';
+      pushToken(tokens, booleanLiteral ? 'boolean' : 'name', input, index, end);
       index = end;
       continue;
     }
