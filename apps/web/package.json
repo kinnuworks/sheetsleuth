@@ -1,0 +1,11 @@
+{
+  "name": "@sheetsleuth/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node ../../scripts/serve-web.mjs",
+    "test": "vitest run --reporter=dot src/page.test.ts"
+  }
+}

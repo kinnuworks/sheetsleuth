@@ -1,16 +1,38 @@
 {
-  "name": "omnirush-starter",
+  "name": "sheetsleuth",
   "version": "0.1.0",
   "private": true,
-  "description": "A project starter with skills, local plugins, and test habits for OmniRush users.",
+  "description": "A spreadsheet safety check for AI agents.",
   "type": "module",
   "license": "MIT",
-  "engines": { "node": ">=22.19.0" },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "workspaces": [
+    "packages/core",
+    "packages/cli",
+    "apps/web"
+  ],
   "scripts": {
     "setup": "node scripts/sync-skills.mjs",
     "bundle:best-practices": "node scripts/bundle-best-practices.mjs",
     "check:starter": "node scripts/check-starter.mjs",
     "test:starter": "node --test starter-tests/*.test.mjs",
-    "check:project": "node scripts/project-checks.mjs"
+    "check:project": "node scripts/project-checks.mjs",
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspace apps/web",
+    "lint": "eslint .",
+    "format:check": "prettier --check package.json starter.config.json tsconfig.json tsconfig.base.json vitest.config.ts eslint.config.js prettier.config.mjs packages apps scripts/build-docs.mjs scripts/check-lockfile.mjs scripts/check-trailers.mjs scripts/serve-web.mjs README.md .github/workflows/ci.yml .github/workflows/pages.yml docs/DECISIONS.md docs/DETECTORS.md docs/SUPPORTED_FUNCTIONS.md",
+    "typecheck": "tsc --build",
+    "test": "vitest run --reporter=dot"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vitest": "^3.2.4"
   }
 }
