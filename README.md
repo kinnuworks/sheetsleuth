@@ -9,7 +9,7 @@ Sheetsleuth is a Session 0 placeholder for a spreadsheet safety check used by AI
 - `packages/cli` contains a small CLI helper for describing a workbook.
 - The repository has npm, Docker, GitHub Actions, and starter project checks.
 
-Spreadsheet detectors and reports do not exist yet. Converted `.xls` fidelity is not implemented yet.
+Spreadsheet detectors and reports do not exist yet. Converted `.xls` fidelity is not implemented yet; when it is added, the comparison will be LibreOffice checked against LibreOffice only.
 
 ## Setup
 
