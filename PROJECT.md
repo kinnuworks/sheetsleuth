@@ -1,6 +1,6 @@
 # Sheetsleuth
 
-Status: Session 0 setup is in progress. The first deliverable is a rebuildable monorepo and a Pages placeholder.
+Status: Session 0 setup is complete locally. The first deliverable is a rebuildable monorepo and a Pages placeholder.
 
 ## Goal
 
@@ -19,10 +19,10 @@ Status: Session 0 setup is in progress. The first deliverable is a rebuildable m
 ## Current task
 
 - The user action and result we need: clone the repo, install dependencies, run the checks, and open a working placeholder Pages site.
-- How we will check that result: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run check:starter`, `npm run check:project`, and `scripts/judge-check.sh`.
+- How we will check that result: `npm test`, `npm run lint`, `npm run typecheck`, `npm run build`, `npm run format:check`, `npm run check:starter`, `npm run check:project`, and `scripts/judge-check.sh`.
 - Relevant files or components: root manifests and Dockerfile, `packages/core`, `packages/cli`, `apps/web`, `scripts/`, and `.github/workflows/`.
-- Known failure or current baseline: Docker is not installed in the sandbox; CI's native amd64 and arm64 jobs are the rebuild proof. LibreOffice was installed locally for future spreadsheet compatibility checks.
-- Remaining work and next step: add the workspaces, checks, CI, and placeholder, then run the full local verification.
+- Known failure or current baseline: Docker is not installed in the sandbox, so the local judge script cannot build the image; CI's native amd64 and arm64 jobs are the rebuild proof. LibreOffice was installed locally for future spreadsheet compatibility checks.
+- Remaining work and next step: build the Stage A checking engine and fixtures on top of the stable workspace foundation.
 
 Keep this section small. Update it as real checks and user feedback change the task.
 
@@ -30,7 +30,7 @@ Keep this section small. Update it as real checks and user feedback change the t
 
 Record commands that work in this repo. Put executable app checks in `starter.config.json`.
 
-- Start the app: `npm run dev --workspace apps/web` (static preview command to be added with the web workspace).
+- Start the app: `npm run dev` (serves the static placeholder at `http://localhost:4173/sheetsleuth/`).
 - Run app tests: `npm test`
 - Check code style: `npm run lint`
 - Check types, if used: `npm run typecheck`
